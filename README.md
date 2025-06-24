@@ -1,4 +1,4 @@
-#Microbiome diversity of low biomass skin sites is captured by metagenomics but not 16S amplicon sequencing
+# Microbiome diversity of low biomass skin sites is captured by metagenomics but not 16S amplicon sequencing
 
 Laura Markey, Evan B. Qu, Calen Mendall, Ana Finzel, Arne Materna and Tami D. Lieberman 
 
@@ -6,7 +6,19 @@ Established workflows for microbiome analysis work well for high microbial bioma
 
 This repository contains the data and code necessary to reproduce the figures and tables shown in the publication, “Microbiome diversity of low biomass skin sites is captured by metagenomics but not 16S sequencing” with the exception of raw sequencing data which is available from NCBI BioProject ID PRJNA1277168.
 
-##Including:
+## To reproduce figures from raw abundance tables:  
+1.	Download the **data** and **scripts** folders  
+2.	Run the script read_filter_datasets.py to generate filtered abundance tables  
+3.	Run the script revised_analysis_viz.py to generate main and supplemental figures (all except Fig. S5) and tables  
+4.	Run the script filter_metagenomics_methods.py to generate figures shown in Fig. S5
+
+## To reproduce figures from raw sequencing data:  
+1.	Download fastq files from NCBI BioProject PRJNA1277168  
+2.	Download the **metagenomics** folder and run the Snakemake workflow to generate the bracken output used by read_filter_datasets.py  
+3.	Run the script QIIME2_workflow.py to generate the raw ASV table used by read_datasets.py  
+4.	Proceed from step 2 above
+
+## Contents of the repository include:
 1.	The **data** folder contains the data accessed by code throughout the repository to generate figures and tables, including:  
 	-compare_filters_data: this folder includes filtered and unfiltered metagenomics relative abundance data (output of kraken) and the output of decontam as well as metadata files used to generate Fig. S5  
 	-hex_color_keys: various color keys referenced by code throughout the repository to color code bacterial taxa to a hex color  
